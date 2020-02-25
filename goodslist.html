@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header">
+	<link rel="stylesheet" href="/css/reset.css.css">
+	<link rel="stylesheet" href="/css/goodslist.css">
+	<link rel="stylesheet" href="/js/layui/css/layui.css">
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/layui/layui.js"></script>
+	<script src="/js/layer/layer.js"></script>
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="serch_top">
+				<input type="text" name="search_title" style="width:266px;height: 30px;margin-left:10px;" placeholder="商品名称/sku编码/供应商编码" autocomplete="off" class="layui-input search_title">  
+			  <button type="button" style="margin-left:10px;" class="layui-btn btn search">搜索</button>
+			</div>
+			<ul  class="list_head" style="display: flex;padding:0 12px;">
+			  <li style="width:6%;min-width:80px;">商品图</li>
+			  <li style="width:94%;display: flex;">
+			  <div style="width:40%">商品名/规格</div>
+			  <div style="width:15%">建议零售价</div>
+			  <div style="width:15%">成本价</div>
+			  <div style="width:15%">库存数量</div>
+			  <div style="width:15%">操作</div>
+			  </li>
+			</ul>
+			<ul style="display: flex; padding:0 12px;">
+			  <li style="width:6%;min-width:80px;text-align: center;padding: 10px 10px 0 0;">
+				<img src="http://a4.att.hudong.com/21/09/01200000026352136359091694357.jpg" style="width:60px;height:60px;" alt="">
+			  </li>
+			  <li style="width:94%">
+			  <div class="right_top">
+					  <h2>海鲜象山黑虎虾250g/∑</h2>
+					  <div style="margin-top:3px">店铺名称：东海老船长</div>
+					  <div style="margin-top:3px">供应商编码：123456</div>
+			  </div>
+			<div>
+			  <div style="display: flex;border-top: 1px dashed #E3E3E3;padding: 7px 0px;align-items: center;">
+					  <div style="width:40%;line-height: 20px;">
+						<div>店铺名称：</div>
+						<div>供应商编码：</div>
+					  </div>
+					  <div style="width:15%" >
+						<span class="col2" data-price="85">￥85.00</span>
+						<span style="display: none;">原价：￥<strong>65.00</strong></span>
+					  </div>
+					  <div style="width:15%">
+						￥45.00
+					  </div>
+					  <div class="col4" style="width:15%">
+						库存：342222
+					  </div>
+					  <div style="width:15%">
+						<button type="button" data-id="4" class="layui-btn btn edit">编辑</button>
+					  </div>
+				  </div>
+				  <div style="display: flex;border-top: 1px dashed #E3E3E3;padding: 7px 0px;align-items: center;">
+					  <div style="width:40%;line-height: 20px;">
+						<div>店铺名称：</div>
+						<div>供应商编码：</div>
+					  </div>
+					  <div class="col2" data-price="85">
+						￥85.00
+					  </div>
+					  <div style="width:15%">
+						￥45.00
+					  </div>
+					  <div class="col4" style="width:15%">
+						库存：342222
+					  </div>
+					  <div style="width:15%">
+						<button type="button" data-id="3" class="layui-btn btn edit">编辑</button>
+					  </div>
+				  </div>
+				  <div style="display: flex;border-top: 1px dashed #E3E3E3;padding: 7px 0px;align-items: center;">
+					  <div style="width:40%;line-height: 20px;">
+						<div>店铺名称：</div>
+						<div>供应商编码：</div>
+					  </div>
+					  <div class="col2" data-price="85">
+						￥85.00
+					  </div>
+					  <div style="width:15%">
+						￥45.00
+					  </div>
+					  <div class="col4" style="width:15%">
+						库存：342222
+					  </div>
+					  <div style="width:15%">
+						<button type="button" data-id="2" class="layui-btn btn edit">编辑</button>
+					  </div>
+				  </div>
+				  <div style="display: flex;border-top: 1px dashed #E3E3E3;padding: 7px 0px;align-items: center;">
+					  <div style="width:40%;line-height: 20px;">
+						<div>店铺名称：</div>
+						<div>供应商编码：</div>
+					  </div>
+					  <div class="col2" data-price="85">
+						￥85.00
+					  </div>
+					  <div style="width:15%">
+						￥45.00
+					  </div>
+					  <div class="col4" style="width:15%">
+						库存：342222
+					  </div>
+					  <div style="width:15%">
+						<button type="button" data-id="1" class="layui-btn btn edit">编辑</button>
+					  </div>
+				  </div>
+				</div>
+				<span style="color:#21B995;display: flex;align-items: center;">共<num>5</num>个规格，点击展开更多<img src="/images/sanjiao_xia.png" alt="" style="width:16px;height:16px;"></span>
+			  </li>
+			</ul>
+		</div>
+	</div>
+	<div>
+	<script>
+		function getList(key){
+			$.ajax({
+				type: "post",
+				url: "url",
+				data: {keywords:key||''},
+				dataType: "json",
+				success: function (res) {
+					
+				}
+			});
+		}
+		$('.search').click(function(){
+			getList($('.search_title').val());
+		});
+		$('.edit').click(function(){
+			let id = $(this).attr('data-id');
+			let val = $(this).parent().parent().find('.col2').attr('data-price');
+			console.log(val);
+			// $.ajax({
+			// 	type: "post",
+			// 	url: "url",
+			// 	data: "data",
+			// 	dataType: "json",
+			// 	success: function (res) {
+					
+			// 	}
+			// });
+		})
+	</script>
+</body>
+</html>

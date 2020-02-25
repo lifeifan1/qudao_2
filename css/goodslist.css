@@ -1,0 +1,42 @@
+.list_head{
+    height: 50px;
+    background-color: #F3F3F4;
+    align-items: center;
+  }
+  .list_head li{
+  font-weight: 550;
+  }
+  .goodslist{
+    box-sizing: border-box;
+    padding: 5px;
+  }
+  .btn{
+    background-color: #21B995 !important;
+    width: 68px !important;
+    height: 30px !important;
+    border: 0 !important;
+    line-height: 30px !important;
+    text-align: center !important;
+    padding: 0 !important;
+    font-size: 13px !important;
+  }
+  .right_top{
+      width: 100%;
+      line-height: 20px;
+      padding: 6px 0;
+  }
+  .serch_top{
+    align-items: center;
+    display: flex;
+    height: 60px;
+    background-color: #F3F3F4;
+    margin-bottom: 20px;
+  }
+  .col2{
+    width: 15%;
+      font-size: 16px;
+      color: #FF5500;
+  }
+  .col4{
+    color: #FBAB3E;
+  }
